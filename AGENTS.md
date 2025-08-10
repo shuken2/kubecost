@@ -34,7 +34,7 @@ clusterName: eks-prod
 namespace: kubecost
 installMethod: helm-oci
 kubecostVersion: "2.8.1"
-domain: "kubecost.example.com"
+domain: "kubecost.jhun80.click"
 useExistingPrometheus: true
 prometheusAddress: "http://prometheus-server.monitoring.svc:80"
 storageClass: "gp2"
