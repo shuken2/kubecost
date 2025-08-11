@@ -23,7 +23,7 @@ AWS EKS 환경에 Kubecost를 설치하고 Web Console에서 비용 모니터링
 - AWS Load Balancer Controller 설치 완료(ALB 사용 가능)
 - IRSA(OIDC) 활성화 완료
 - StorageClass: `gp2` (AWS EBS 기반)
-- Prometheus: 기존 설치 버전 재활용(선택)
+- Prometheus: 신규로 생성합니다 (gp2 기반)
 - 도메인: `kubecost.jhun80.click` (Route53/ACM 인증서 사용 가능)
 
 ---
@@ -35,7 +35,7 @@ namespace: kubecost
 installMethod: helm-oci
 kubecostVersion: "2.8.1"
 domain: "kubecost.jhun80.click"
-useExistingPrometheus: true
+useExistingPrometheus: false
 prometheusAddress: "http://prometheus-server.monitoring.svc:80"
 storageClass: "gp2"
 pvcSize: "50Gi"
@@ -143,7 +143,7 @@ costSources:
 kubecostModel:
   persistence:
     enabled: true
-    storageClass: "gp3"
+    storageClass: "gp2"
     size: "50Gi"
 ```
 
