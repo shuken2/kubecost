@@ -14,14 +14,21 @@ kubecostModel:
       memory: 2Gi
 
 prometheus:
-  enabled: false
-  serviceMonitor:
-    enabled: false
+  enabled: true
+  server:
+    persistentVolume:
+      enabled: true
+      storageClass: "gp2"
+      size: "50Gi"
 
 kubecostProductConfigs:
   clusterName: "eks-prod"
-  prometheusEndpoint: "http://prometheus-server.monitoring.svc:80"
   cloudProvider: "AWS"
+  costSources:
+    - kubernetes
+    - ebs
+    - ec2
+    - s3
 
 serviceAccount:
   create: false

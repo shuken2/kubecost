@@ -7,8 +7,7 @@ This guide describes how to install Kubecost on an Amazon EKS cluster and expose
 - Namespace `kubecost`
 - ACM certificate for `kubecost.jhun80.click`
 - IAM role `kubecost-irsa` with Cost Explorer permissions
-- Existing Prometheus at `http://prometheus-server.monitoring.svc:80`
-- StorageClass `gp2`
+- StorageClass `gp2` (used for Kubecost and the bundled Prometheus)
 
 ## Installation
 ```bash
@@ -23,4 +22,5 @@ The Web Console is exposed at `https://kubecost.jhun80.click` via an ALB. Verify
 ## Operations Checklist
 - Ensure workloads are labeled with `team`, `env`, and `owner`
 - Review Allocation, Assets and Savings dashboards after deployment
+- Confirm cost data is collected from Kubernetes, EBS, EC2 and S3 sources
 - Generate monthly cost reports and prune unused resources
